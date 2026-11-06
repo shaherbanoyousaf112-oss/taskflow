@@ -7,6 +7,11 @@ const errorHandler = (err, req, res, next) => {
   let statusCode = res.statusCode && res.statusCode !== 200 ? res.statusCode : 500;
   let message = err.message;
 
+    // Galat ID format
+  if (err.name === "CastError") {
+    statusCode = 404;
+    message = "Resource not found";
+  }
   // Duplicate email
   if (err.code === 11000) {
     statusCode = 400;

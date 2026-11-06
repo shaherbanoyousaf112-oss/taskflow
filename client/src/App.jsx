@@ -5,6 +5,7 @@ import GuestRoute from "./components/common/GuestRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import WorkspacePage from "./pages/WorkspacePage";
 
 export default function App() {
   return (
@@ -18,8 +19,9 @@ export default function App() {
         </Route>
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
+  <Route path="/dashboard" element={<Dashboard />} />
+  <Route path="/workspaces/:id" element={<WorkspacePage />} />
+</Route>
 
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
